@@ -1,0 +1,42 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block body %}
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(200, 226, 247); height: 140px;">
+    <div>
+        <h6 style="text-indent: 550px;">Home/<a style="color: blue;"  href="{% url 'portfolio' %}">Portfolio</a></h6>
+    </div>
+</nav> 
+<div class="mx-4">
+    <h4 style="font-family: sans-serif; font-size: 26px; color: rgb(6, 6, 82);">Explore It 's previous works</h4>
+    <p>It's team will perform keyword research for your business. We analyze the competition around your top keywords, including any new ones, and optimize their selection for the best opportunities in your market.</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+       {% for work in allwork %}
+        <div class="card text-bg-dark">
+            <img src="{{ work.imgUrl }}" class="card-img" alt="...">
+            <p class="card-text"><small><a href="{{ work.explore }}" style="color: rgb(13, 88, 150); font-family: Arial, Helvetica, sans-serif; font-size: 15px;">{{ work.workIt }}<span'>&#8594;</span></a></small></p>
+        </br>
+        </div>
+        {% endfor %}
+    
+    </div>
+      <h4 style="font-family: sans-serif; font-size: 26px; color: rgb(6, 6, 82);">Creative Web Development by It</h4>
+      {% for image in allgallery %}
+      <img id="myBtn" src="{{ image.galleryUrl }}" class="card-img">
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+      
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close"></span>
+          <img src="{{ image.galleryUrl }}" style="width: 350px;">
+        </div>
+      
+      </div>
+      
+      {% endfor %}
+      <a href="https://timesit.org/web-design-portfolio/" style="color: rgb(13, 88, 150); font-family: Arial, Helvetica, sans-serif; font-size: 15px;">View More<span'>&#8594;</span></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}It{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'main/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg" style="background-color:  rgb(200, 226, 247);">
+           <img class="navbar-brand" width="200" height="74" src="https://cdn.freebiesupply.com/logos/large/2x/its-demo-logo-png-transparent.png">
+           
+          
+           <div>
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item" style="text-align: center;">
+                        <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                  <div class="subnav">
+                    <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
+                    <div class="subnav-content" style="width: 55%;margin-left: 15px;">
+                      <h4 style="color: darkblue; text-decoration: underline rgb(88, 87, 87); text-align: start;margin-left: 20px;" class="my-2">Services</h4>
+                      <a href="{% url 'service' id=1 %}" style="color: rgb(88, 87, 87);"><h5 style="color: black;">Branding Identity</h5>
+                      </br>
+                        <h6>Brand Identity</h6>
+                        <h6>Print Design</h6>
+                        <h6>Web & App Design</h6>
+                        <h6>Marketing Design</h6>
+                        <h6>Visual Design</h6>
+                        <h6>Product & Packaging</h6>
+                      </a>
+                      <a href="{% url 'service' id=2 %}" style="color: rgb(88, 87, 87);"><h5 style="color: black;">Web Development & Design</h5>
+                      </br>
+                        <h6>Web Design</h6>
+                        <h6>Web Development</h6>
+                        <h6>Wordpress Website Design</h6>
+                        <h6>Marketing Design</h6>
+                        <h6>Website Speed Optimization</h6>
+                        <h6>Website Maintenance</h6>
+                        <h6>Website Security</h6>
+                      </a>
+                      <a href="{% url 'service' id=5 %}" style="color: rgb(88, 87, 87);"><h5 style="color: black;">Digital Marketing</h5>
+                      </br>
+                        <h6>SEO</h6>
+                        <h6>Local SEO</h6>
+                        <h6>On-page Optimization</h6>
+                        <h6>Technical SEO</h6>
+                        <h6>Websute audit and error fixing</h6>
+                        <h6>Social Media Marketing</h6>
+                        <h6>Advertising</h6>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+              </ul>
+
+  
+        </nav>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+        <nav class="navbar navbar-expand-lg" style="background-color: rgb(3, 3, 87); height: 140px;">
+          <div>
+              <h3 style="color: white;">It's official website</h3>
+              <a href="https://timesit.org/" class="btn btn-primary" style="float: right; text-align: 650px;">It</a>
+          </br>
+              <h6 style="color: white;">Mock website</h6>
+          </div>
+      </nav> 
+    </body>
+    <script src="{% static 'main/library.js' %}"></script>   
+</html>

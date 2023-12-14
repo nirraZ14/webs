@@ -1,0 +1,109 @@
+.modal-content{
+  height: 10px;
+}
+.navbar-nav {
+  overflow: hidden;
+}
+
+.navbar-nav a {
+  float: left;
+  font-size: 16px;
+  color: none;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+.subnav .subnavbtn {
+  font-size: auto;
+  border: none;
+  outline: none;
+  color: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color:lightblue;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  padding-right: 4px;
+  color:none;
+  text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: none;
+  color: none;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
+  padding: 2px;
+}
+
+.card-title{
+  color: blue;
+}
+.text2{
+  color: lightblue;
+}
+.card-img{
+  width: 230px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 4;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;/* 15% from the top and centered */
+  padding: 20px;
+  border: 100px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.navbar{
+  text-align: center;
+}
+.nav_url{
+  text-align: center;
+}

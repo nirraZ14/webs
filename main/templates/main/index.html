@@ -1,0 +1,77 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block body %}
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(200, 226, 247); height: 140px;">
+    <div>
+        <h6 style="text-indent: 550px;"><a style="color: blue;"  href="{% url 'index' %}">Home</a></h6>
+    </div>
+</nav> 
+<div class="card mb-3" style="max-width: 1140px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://previews.123rf.com/images/javvanimusic/javvanimusic2202/javvanimusic220200373/182229735-cat-hugs-a-big-coffee-cup-vector-illustration-for-coffee-houses-isolated-on-white-background-can.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="height: 270px;">
+          <h5 class="card-title" style="color: rgb(28, 28, 82);font-family: sans-serif; font-size: 36px;">It will</h5><h5 style="color: rgb(42, 130, 160);font-family: sans-serif; font-size: 36px;">shape your dreams !</h5>
+          <p class="card-text" style="color: gray;">It is a global technology company that has been providing IT services and training to clients for nearly since 2017.</p>
+        </br>
+         <button id="myBtn" class="btn btn-primary">See Our Works</button>
+
+         <!-- The Modal -->
+         <div id="myModal" class="modal"">
+        
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close"></span>
+            <p style="font-size: 26px; font-family: sans-serif;">Creative works done by us</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                  <div class="card" style="width: 18rem;">
+                      <img src="https://img.icons8.com/arcade/64/web-design.png" class="card-img-top mx-4" style="width: 70px;" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Website Design</h5>
+                          <p><a href="https://timesit.org/web-design-portfolio/">Explore more</a></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="card" style="width: 18rem;">
+                      <img src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/100/external-graphic-design-advertising-flatart-icons-lineal-color-flatarticons.png" class="card-img-top mx-4" style="width: 70px;" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">Graphic Design</h5>
+                          <p><a href="https://timesit.org/web-design-portfolio/">Explore more ></a></p>
+                      </div>
+                  </div>
+              </div>
+            </div>     
+          </div>
+        
+         </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    <div class="mx-4">
+        <h2 style="color:midnightblue; text-decoration-thickness:auto ;">Expand your business from our digital agency</h2>
+        <p>We can help convert your dreams into reality by bringing together strategy, design, and production to build you a strong online presence.</p>
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for service in allService %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ service.img }}" class="card-img-top mx-4" style="width: 70px;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.title }}</h5>
+                        <p class="card-text">{{ service.body }}</p>
+                        <a href="{% url 'service' id=service.id %}" class="btn btn-primary">Explore more</a>
+                    </div>
+                 </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock %}

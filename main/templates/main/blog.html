@@ -1,0 +1,48 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block body %}
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(200, 226, 247); height: 140px;">
+    <div>
+        <h6 style="text-indent: 550px;">Home/<a style="color: blue;"  href="{% url 'blog' %}">Blog</a></h6>
+    </div>
+</nav> 
+{% for blog in allblog %}
+<div class="card my-4 mx-4">
+  <div class="card-body my-card">
+    <div class="d-flex mb-2">
+      <img src="{{ blog.blogimg }}" name="blogimg" style="width: fit-content;">
+    </div>
+        <span class="title" style="font-size: 26px;">{{blog.title}}</span>
+        <textarea style="display:none;" class="form-control textarea" row="3">{{blog.title}}</textarea>
+  </br>
+    <span class="content">{{blog.content}}</span>
+    <textarea style="display:none;" class="form-control textarea" row="3">{{blog.content}}</textarea>
+</br>
+    <a href="{{ blog.blogUrl }}" name="blogUrl">Load more</a>
+  </div>
+</div>
+{% endfor %}
+{% if user.is_authenticated %}
+<div class="mx-4">
+  <h2 style="color:midnightblue; text-decoration-thickness:auto ;">Share Your Experiences</h2>
+  <h4 style="color: rgb(33, 57, 65);">Add Blog</h4>
+</br>
+    <form action="{% url 'blog' %}" method="post">
+        {% csrf_token %}
+        Image
+        <textarea class="mt-2 form-control" name="blogimg" rows="1" ></textarea>
+        Title
+        <textarea class="mt-2 form-control" name="title" rows="1"></textarea>
+        Content
+        <textarea class="mt-2 form-control" name="content"rows="3"></textarea>
+        Source
+        <textarea class="mt-2 form-control" name="blogUrl" rows="1"></textarea>
+        <div class="mt-2 d-flex justify-content-end">
+          <input type="submit" value="Post" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endif %}
+
+
+{% endblock %}
